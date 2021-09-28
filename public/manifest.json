@@ -1,21 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MoviesBook",
+  "name": "Second version of LetsWatch app, implementing wider functionalities, such as navigating through Movie lists (in addition to series), adding any choice to a watchlist in order to watch it later, navigating through popular picks of movies/series. Stack used, includes, but not limited to: React, React Hooks, React icons, Context API, Fetching from external API (The Movie Database API), Material UI for modern component architecture in addition to native styling using node-Sass.",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",
