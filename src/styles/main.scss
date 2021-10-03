@@ -1,0 +1,57 @@
+$primary: #9888f9;
+$secondary: #f1b918;
+$gradient: linear-gradient(45deg, #9888f9 14.64%, #f1b918 85.34%);
+
+@import "searchcomponent";
+@import "cardcomponent";
+
+.loading-container {
+  width: 100%;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loading {
+    width: 20rem;
+  }
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #7863f7;
+
+  .nav-icon {
+    font-size: 2.2rem;
+    color: #1b0793;
+  }
+
+  .Mui-selected {
+    color: $secondary;
+    font-size: 1rem;
+    svg {
+      fill: $secondary;
+    }
+  }
+}
+
+header {
+  width: 100%;
+  padding: 2.4rem 0 0 2.4rem;
+  img {
+    width: 20rem;
+  }
+}
+
+.container {
+  padding: 1rem;
+
+  .headline {
+    padding: 2.4rem 0;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+  }
+}

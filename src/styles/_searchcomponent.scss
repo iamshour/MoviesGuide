@@ -1,0 +1,69 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .switching-btn {
+    position: absolute;
+    top: 2.6rem;
+    right: 2.4rem;
+    padding: 1rem;
+    outline: 0;
+    border: 0;
+    border-radius: 4px;
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      transform: scale(0.96);
+    }
+
+    .icon {
+      font-size: 2.2rem;
+      stroke-width: 0.6px;
+      overflow: visible;
+    }
+  }
+
+  form {
+    padding: 2rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    transition: all 250ms ease-in-out;
+
+    input {
+      padding: 0.8rem;
+      font-size: 1.4rem;
+      border: 1px solid #7d5f08;
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
+      color: #1d0896;
+      font-family: inherit;
+
+      &:focus {
+        border: 1px solid #6148f5;
+        outline-width: 0;
+      }
+
+      &::placeholder {
+        font-family: inherit;
+        color: #ada0fa;
+      }
+    }
+
+    button {
+      padding: 0.4rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      border-radius: 4px;
+      background: #9888f9;
+      border: 1px solid #6148f5;
+      color: #f2f2f2;
+      font-family: inherit;
+    }
+  }
+}
