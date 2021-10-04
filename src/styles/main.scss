@@ -2,8 +2,9 @@ $primary: #9888f9;
 $secondary: #f1b918;
 $gradient: linear-gradient(45deg, #9888f9 14.64%, #f1b918 85.34%);
 
-@import "searchcomponent";
-@import "cardcomponent";
+@import "searchComponent";
+@import "cardContainer";
+@import "alertComponent";
 
 .loading-container {
   width: 100%;
@@ -20,11 +21,11 @@ $gradient: linear-gradient(45deg, #9888f9 14.64%, #f1b918 85.34%);
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: #7863f7;
+  background: #5c42f5;
 
   .nav-icon {
     font-size: 2.2rem;
-    color: #1b0793;
+    color: #160676;
   }
 
   .Mui-selected {

@@ -8,7 +8,7 @@ import SearchComponent from '../components/SearchComponent';
 
 const Movies = () => {
 
-    const { popularMovies, getPopularMovies, loading, getSearchedMovies, searchedMovies } = useContext(GlobalContext);
+    const { showMovies, getPopularMovies, getSearchedMovies, loading, headline } = useContext(GlobalContext);
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
@@ -23,14 +23,14 @@ const Movies = () => {
                 func={getSearchedMovies}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
+                clearSearch={getPopularMovies}
             />
-            { searchedMovies.length > 0 ?
+            { showMovies &&
                 <>
-                    <Headline text={'Search results'} />
+                    <Headline text={headline} />
                     { loading ? <Loading /> :
                         <div className='card-container'>
-                            { searchedMovies.length > 0 &&
-                                searchedMovies.map((movie) => 
+                            {   showMovies.map((movie) => 
                                     <Card 
                                         key={movie.id}
                                         id={movie.id}
@@ -43,26 +43,7 @@ const Movies = () => {
                             }
                         </div>
                     }
-                </> : 
-                <>
-                    <Headline text={'Popular Movies'} />
-                    { loading ? <Loading /> :
-                        <div className='card-container'>
-                            { popularMovies.length > 0 &&
-                                popularMovies.map((movie) => 
-                                    <Card 
-                                        key={movie.id}
-                                        id={movie.id}
-                                        title={movie.title}
-                                        image={movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : 'https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg'}
-                                        date={movie.release_date}
-                                        rating={movie.vote_average ? movie.vote_average : ''}
-                                    />
-                                )
-                            }
-                        </div>
-                    }
-                </>
+                </>  
             }
         </>
     )

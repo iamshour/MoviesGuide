@@ -1,0 +1,33 @@
+.alert {
+  width: 80%;
+  height: 4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: pink;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  margin: 0.6rem auto -0.6rem auto;
+
+  .alert-icon {
+    font-size: 2.4rem;
+    margin-right: 1rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+.alert-warning {
+  background: #f8ffc4;
+  border: 1px solid #ffee00;
+}
+.alert-danger {
+  background: pink;
+  border: 1px solid #ff0000;
+}
+.alert-info {
+  background: #d7eafe;
+  border: 1px solid #0523b7;
+}

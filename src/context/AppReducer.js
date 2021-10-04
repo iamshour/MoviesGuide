@@ -10,29 +10,45 @@ const AppReducer = (state, action) => {
             case 'GET_POPULAR_MOVIES':
             return {
                 ...state,
-                popularMovies: action.payload,
-                loading: false
+                showMovies: action.payload,
+                loading: false,
+                headline: 'Popular Movies'
             }
 
             case 'GET_POPULAR_SERIES':
             return {
                 ...state,
-                popularSeries: action.payload,
-                loading: false
+                showSeries: action.payload,
+                loading: false,
+                headline: 'Popular Series'
             }
 
             case 'GET_SEARCHED_MOVIES':
             return {
                 ...state,
-                searchedMovies: action.payload,
+                showMovies: action.payload,
                 loading: false,
+                headline: 'Search Results'
             }
 
             case 'GET_SEARCHED_SERIES':
             return {
                 ...state,
-                searchedSeries: action.payload,
+                showSeries: action.payload,
                 loading: false,
+                headline: 'Search Results'
+            }
+
+            case 'SET_ALERT':
+            return {
+                ...state,
+                alert: action.payload
+            }
+            
+            case 'REMOVE_ALERT': 
+            return {
+                ...state,
+                alert: null
             }
             
         case 'ADD_MOVIE_TO_WATCHLIST':
