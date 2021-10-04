@@ -36,7 +36,7 @@ const Movies = () => {
                                         id={movie.id}
                                         title={movie.title}
                                         image={movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : 'https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg'}
-                                        date={movie.release_date}
+                                        date={`Release date: ${movie.release_date}`}
                                         rating={movie.vote_average ? movie.vote_average : ''}
                                     />
                                 )

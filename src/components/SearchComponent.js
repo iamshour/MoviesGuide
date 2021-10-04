@@ -21,6 +21,11 @@ const SearchComponent = ({ func, searchTerm, setSearchTerm, clearSearch }) => {
             setAlert('please enter something', 'danger')
         } else {
             func(searchTerm);
+            document.getElementById('input').inputMode = "none";
+
+            setTimeout(() => {
+                document.getElementById('input').inputMode = "text"
+            }, 50)
         } 
     }
 
@@ -47,7 +52,7 @@ const SearchComponent = ({ func, searchTerm, setSearchTerm, clearSearch }) => {
                         /> 
                     }
                     <form onSubmit={submit}>
-                        <input type="text" placeholder={pathname === '/' ? 'Search for a movie' : 'Search for a series'} value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+                        <input type="text" id='input' placeholder={pathname === '/' ? 'Search for a movie' : 'Search for a series'} value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
                         <button>Search</button>
                     </form>
                 </>

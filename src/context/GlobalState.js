@@ -35,6 +35,7 @@ export const GlobalProvider = ({ children }) => {
                 type: 'GET_POPULAR_MOVIES',
                 payload: response.data.results
             })
+            console.log(response.data.results)
           } catch (error) {
             // Request Failed!
             if (error.response) {
@@ -65,6 +66,7 @@ export const GlobalProvider = ({ children }) => {
                 type: 'GET_POPULAR_SERIES',
                 payload: response.data.results
             })
+            console.log(response.data.results)
           } catch (error) {
             // Request Failed!
             if (error.response) {
@@ -91,7 +93,6 @@ export const GlobalProvider = ({ children }) => {
         try {
             const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchTerm}&include_adult=false`);
             // Request Succeeded!
-            console.log(response);
             dispatch({
                 type: 'GET_SEARCHED_MOVIES',
                 payload: response.data.results.filter(item => item.title !== 'UNdefined')

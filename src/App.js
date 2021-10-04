@@ -11,6 +11,7 @@ import Movies from './pages/Movies'
 import Series from './pages/Series'
 import Wishlist from './pages/Wishlist'
 import About from './pages/About'
+import SingleItem from './pages/SingleItem';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/series' component={Series} />
             <Route path='/wishlist' component={Wishlist} />
             <Route path='/about' component={About} />
+            <Route path='/item/:id' component={SingleItem} />
           </Switch>
         </div>
         <BottomNav />
