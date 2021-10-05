@@ -4,13 +4,14 @@ import AppReducer from './AppReducer'
 
 // initial state
 const initialState = {
-    showMovies: [],
-    showSeries: [],
+    showItems: [],
+    singleItem: {},
     watchlistMovies: [],
     watchlistSeries: [],
     loading: false,
     alert: null,
-    headline: ''
+    headline: '',
+    location: 0
 }
 
 // create context
@@ -22,20 +23,19 @@ export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
 
     // Actions
-    const getPopularMovies = async () => {
+    const getPopularItems = async (media_type) => {
 
         dispatch({
             type: 'SET_LOADING'
         })
         
         try {
-            const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}`);
+            const response = await axios.get(`https://api.themoviedb.org/3/trending/${media_type}/day?api_key=${process.env.REACT_APP_API_KEY}`);
             // Request Succeeded!
             dispatch({
-                type: 'GET_POPULAR_MOVIES',
+                type: 'GET_POPULAR_ITEMS',
                 payload: response.data.results
             })
-            console.log(response.data.results)
           } catch (error) {
             // Request Failed!
             if (error.response) {
@@ -53,48 +53,16 @@ export const GlobalProvider = ({ children }) => {
         }
     }
 
-    const getPopularSeries = async () => {
+    const getSearchResults = async (searchTerm, media_type) => {
 
         dispatch({
             type: 'SET_LOADING'
         })
 
         try {
-            const response = await axios.get(`https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_API_KEY}`);
-            // Request Succeeded!
+            const response = await axios.get(`https://api.themoviedb.org/3/search/${media_type}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchTerm}&include_adult=false`);
             dispatch({
-                type: 'GET_POPULAR_SERIES',
-                payload: response.data.results
-            })
-            console.log(response.data.results)
-          } catch (error) {
-            // Request Failed!
-            if (error.response) {
-            // The request was made and the server responded with a status code that falls out of the range of 2xx
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-            } else if (error.request) {
-            // The request was made but no response was received.`error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
-                console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error
-                console.log('Error', error.message);
-            }
-        }
-    }
-
-    const getSearchedMovies = async (searchTerm) => {
-
-        dispatch({
-            type: 'SET_LOADING'
-        })
-
-        try {
-            const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchTerm}&include_adult=false`);
-            // Request Succeeded!
-            dispatch({
-                type: 'GET_SEARCHED_MOVIES',
+                type: 'GET_SEARCH_RESULTS',
                 payload: response.data.results.filter(item => item.title !== 'UNdefined')
             })
           } catch (error) {
@@ -114,21 +82,20 @@ export const GlobalProvider = ({ children }) => {
         }
     }
     
-    const getSearchedSeries = async (searchTerm) => {
+    const getSingleItem = async ( media_type, id) => {
 
         dispatch({
             type: 'SET_LOADING'
         })
-        
+
         try {
-            const response = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchTerm}&include_adult=false`);
-            // Request Succeeded!
-            console.log(response);
+            const response = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
             dispatch({
-                type: 'GET_SEARCHED_SERIES',
-                payload: response.data.results
+                type: 'SET_SINGLE_ITEM',
+                payload: response.data
             })
-          } catch (error) {
+            console.log(response.data)
+        } catch (error) {
             // Request Failed!
             if (error.response) {
             // The request was made and the server responded with a status code that falls out of the range of 2xx
@@ -157,6 +124,13 @@ export const GlobalProvider = ({ children }) => {
         setTimeout(() => dispatch({type: 'REMOVE_ALERT'}), 2000)
     }
 
+    const setLocation = (data) => {
+        dispatch({
+            type:  'SET_LOCATION',
+            payload: data
+        })
+    }
+
     const addMovieToWatchlist = movie => {
         dispatch({
             type: 'ADD_MOVIE_TO_WATCHLIST',
@@ -167,12 +141,12 @@ export const GlobalProvider = ({ children }) => {
     return (
         <GlobalContext.Provider value={{
             ...state,
-            getPopularMovies,
-            getPopularSeries,
-            getSearchedMovies,
-            getSearchedSeries,
+            getPopularItems,
+            getSearchResults,
+            getSingleItem,
             setAlert,
             addMovieToWatchlist,
+            setLocation
         }}>
             {children}
         </GlobalContext.Provider>

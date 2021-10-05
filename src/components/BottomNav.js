@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import { useHistory } from 'react-router';
+import { GlobalContext } from '../context/GlobalState';
 
 //Icons
 import { RiMovie2Line } from "react-icons/ri";
@@ -9,22 +10,22 @@ import { BsCardChecklist, BsInfoCircle } from "react-icons/bs";
 
 const Navbar = () => {
 
-    const [value, setValue] = useState('Movies');
+    const{ location, setLocation } = useContext(GlobalContext);
     const history = useHistory();
 
     useEffect(() => {
-        if (value === 0) history.push('/')
-        else if (value === 1) history.push('/series')
-        else if (value === 2) history.push('/wishlist')
-        else if (value === 3) history.push('/about')
-    }, [value, history])
+        if (location === 0) history.push('/')
+        else if (location === 1) history.push('/series')
+        else if (location === 2) history.push('/wishlist')
+        else if (location === 3) history.push('/about')
+    }, [location, history])
 
     return (
         <BottomNavigation
             // showLabels
-            value={value}
+            value={location}
             onChange={(event, newValue) => {
-                setValue(newValue);
+                setLocation(newValue);
             }}
             className='navbar'
         >

@@ -7,24 +7,24 @@ import { GlobalProvider } from './context/GlobalState';
 import Header from './components/Header';
 
 // Pages
-import Movies from './pages/Movies'
-import Series from './pages/Series'
+import ItemTab from './pages/ItemTab';
 import Wishlist from './pages/Wishlist'
 import About from './pages/About'
 import SingleItem from './pages/SingleItem';
 
 function App() {
+
   return (
     <GlobalProvider>
       <Router>
         <Header />
         <div className="container">
           <Switch>
-            <Route exact path='/' component={Movies} />
-            <Route path='/series' component={Series} />
+            <Route exact path='/' component={ItemTab} />
+            <Route path='/series' component={ItemTab} />
+            <Route path='/:id' component={SingleItem} />
             <Route path='/wishlist' component={Wishlist} />
             <Route path='/about' component={About} />
-            <Route path='/item/:id' component={SingleItem} />
           </Switch>
         </div>
         <BottomNav />
