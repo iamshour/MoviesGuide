@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { img_large, unavailable_modal } from "./config";
 //icons
 import { VscChromeClose } from "react-icons/vsc"
@@ -8,12 +8,18 @@ import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { TiVideo } from "react-icons/ti";
 import CastCarousel from "./CastCarousel";
 import { BsFillStarFill } from "react-icons/bs"
-
+import { GlobalContext } from "../context/GlobalState";
 
 const Modal = ({ setModalOpened, media_type, id }) => {
 
+	const { favoriteMovies, addFavoriteMovie, removeFavoriteMovie, favoriteSeries, addFavoriteSeries, removeFavoriteSeries } = useContext(GlobalContext);
 	const [singleItem, setSingleItem] = useState({})
 	const [video, setVideo] = useState()
+
+	let storedMovie = favoriteMovies.find(o => o.id === singleItem.id)
+	let storedSeries = favoriteSeries.find(o => o.id === singleItem.id)
+
+	// const alreadyFavorite = 
 
 	const fetchData = async () => {
 		const { data } = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
@@ -77,7 +83,6 @@ const Modal = ({ setModalOpened, media_type, id }) => {
 										))
 									}
 								</div>
-								
 								{/* <p>{singleItem.tagline && singleItem.tagline}</p> */}
 							</div>
 							<div className="content-cta">
@@ -89,11 +94,27 @@ const Modal = ({ setModalOpened, media_type, id }) => {
 									<AiOutlineLink className='cta-icon' />
 									<h2>Official page</h2>
 								</a>
-								<button className="cta wishlist">
-									{/* <MdFavorite className='cta-icon'/> */}
-									<MdFavoriteBorder className='cta-icon'/>
-									<h2>Add to Favorites</h2>
-								</button>
+								{ media_type === 'movie' ?
+									(storedMovie ? 
+									<button className="cta wishlist" onClick={() => removeFavoriteMovie(singleItem.id)} style={{color: '#f1b918'}}>
+										<MdFavorite className='cta-icon' />
+										<h2>Already a favorite!</h2>
+									</button> :
+									<button className="cta wishlist" onClick={() => addFavoriteMovie(singleItem)}>
+										<MdFavoriteBorder className='cta-icon'/>
+										<h2>Add to Favorites</h2>
+									</button>) :
+								
+									(storedSeries ? 
+									<button className="cta wishlist" onClick={() => removeFavoriteSeries(singleItem.id)} style={{color: '#f1b918'}}>
+										<MdFavorite className='cta-icon' />
+										<h2>Already a favorite!</h2>
+									</button> :
+									<button className="cta wishlist" onClick={() => addFavoriteSeries(singleItem)}>
+										<MdFavoriteBorder className='cta-icon'/>
+										<h2>Add to Favorites</h2>
+									</button>)
+								}
 							</div>
 							<div className='overview'>
 								<p>{singleItem.overview}</p>

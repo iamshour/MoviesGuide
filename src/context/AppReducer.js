@@ -41,11 +41,34 @@ const AppReducer = (state, action) => {
 				alert: null,
 			}
 
-		case "ADD_MOVIE_TO_WATCHLIST":
+		case "ADD_FAVORITE_MOVIE":
 			return {
 				...state,
-				watchlist: [action.payload, ...state.watchlist],
+				favoriteMovies: [action.payload, ...state.favoriteMovies],
 			}
+
+		case "REMOVE_FAVORITE_MOVIE":
+			return {
+				...state,
+				favoriteMovies: state.favoriteMovies.filter(
+					(movie) => movie.id !== action.payload
+				),
+			}
+
+		case "ADD_FAVORITE_SERIES":
+			return {
+				...state,
+				favoriteSeries: [action.payload, ...state.favoriteSeries],
+			}
+
+		case "REMOVE_FAVORITE_SERIES":
+			return {
+				...state,
+				favoriteSeries: state.favoriteSeries.filter(
+					(series) => series.id !== action.payload
+				),
+			}
+
 		default:
 			return state
 	}

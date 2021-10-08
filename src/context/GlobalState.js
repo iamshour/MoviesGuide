@@ -5,8 +5,8 @@ import AppReducer from "./AppReducer"
 // initial state
 const initialState = {
 	showItems: [],
-	watchlistMovies: [],
-	watchlistSeries: [],
+	favoriteMovies: [],
+	favoriteSeries: [],
 	loading: false,
 	alert: null,
 	headline: "",
@@ -103,10 +103,31 @@ export const GlobalProvider = ({ children }) => {
 		})
 	}
 
-	const addMovieToWatchlist = (movie) => {
+	const addFavoriteMovie = (movie) => {
 		dispatch({
-			type: "ADD_MOVIE_TO_WATCHLIST",
+			type: "ADD_FAVORITE_MOVIE",
 			payload: movie,
+		})
+	}
+
+	const removeFavoriteMovie = (id) => {
+		dispatch({
+			type: "REMOVE_FAVORITE_MOVIE",
+			payload: id
+		})
+	}
+	
+	const addFavoriteSeries = (series) => {
+		dispatch({
+			type: "ADD_FAVORITE_SERIES",
+			payload: series,
+		})
+	}
+
+	const removeFavoriteSeries = (id) => {
+		dispatch({
+			type: "REMOVE_FAVORITE_SERIES",
+			payload: id
 		})
 	}
 
@@ -117,8 +138,11 @@ export const GlobalProvider = ({ children }) => {
 				getPopularItems,
 				getSearchResults,
 				setAlert,
-				addMovieToWatchlist,
-				setLocation
+				addFavoriteMovie,
+				removeFavoriteMovie,
+				addFavoriteSeries,
+				removeFavoriteSeries,
+				setLocation,
 			}}
 		>
 			{children}
