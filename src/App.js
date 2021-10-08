@@ -8,7 +8,7 @@ import Header from "./components/Header"
 
 // Pages
 import ItemTab from "./pages/ItemTab"
-import Wishlist from "./pages/Wishlist"
+import Favorites from "./pages/Favorites"
 import About from "./pages/About"
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 					<Switch>
 						<Route exact path='/' component={ItemTab} />
 						<Route path='/series' component={ItemTab} />
-						<Route path='/wishlist' component={Wishlist} />
+						<Route path='/favorites' component={Favorites} />
 						<Route path='/about' component={About} />
 					</Switch>
 				</div>

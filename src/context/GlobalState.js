@@ -118,7 +118,7 @@ export const GlobalProvider = ({ children }) => {
 				getSearchResults,
 				setAlert,
 				addMovieToWatchlist,
-				setLocation,
+				setLocation
 			}}
 		>
 			{children}

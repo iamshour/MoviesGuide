@@ -1,10 +1,14 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { img_large, unavailable_modal } from "./config";
 //icons
 import { VscChromeClose } from "react-icons/vsc"
 import { AiOutlineLink } from "react-icons/ai";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { TiVideo } from "react-icons/ti";
+import CastCarousel from "./CastCarousel";
+import { BsFillStarFill } from "react-icons/bs"
+
 
 const Modal = ({ setModalOpened, media_type, id }) => {
 
@@ -51,10 +55,21 @@ const Modal = ({ setModalOpened, media_type, id }) => {
 						>
 							<VscChromeClose className='close-icon'/>
 						</button>
-						<img src={singleItem.backdrop_path ? `https://image.tmdb.org/t/p/w500${singleItem.backdrop_path}` : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"} alt="" />
+						<div className="img-container">
+							<img src={singleItem.backdrop_path ? `${img_large}/${singleItem.backdrop_path}` : unavailable_modal} alt={singleItem.title || singleItem.name} />
+						</div>
 						<div className="content">
-							<div className='title'>
-								<h1>{singleItem.title || singleItem.name}</h1>
+							<div className='top-content'>
+								<h1 className='title'>{singleItem.title || singleItem.name}</h1>
+								<div className="rating-year">
+									<div className="rating">
+										<BsFillStarFill className='rating-icon' />
+										<h3>{singleItem.vote_average ? singleItem.vote_average : 'N/A'}</h3>
+									</div>
+									<h4 className='year'>
+										|&nbsp;&nbsp;&nbsp;{(singleItem.release_date || singleItem.first_air_date || '----').substring(0, 4)}
+									</h4>
+								</div>
 								<div className='genres-container'>
 									{singleItem.genres &&
 										singleItem.genres.map((genre) => (
@@ -64,7 +79,6 @@ const Modal = ({ setModalOpened, media_type, id }) => {
 								</div>
 								
 								{/* <p>{singleItem.tagline && singleItem.tagline}</p> */}
-								{/* ({(singleItem.release_date || singleItem.first_air_date || '----').substring(0, 4)}) */}
 							</div>
 							<div className="content-cta">
 								<a className="cta trailer" href={`https://www.youtube.com/watch?v=${video}`} rel='noreferrer' target='_blank'>
@@ -84,6 +98,10 @@ const Modal = ({ setModalOpened, media_type, id }) => {
 							<div className='overview'>
 								<p>{singleItem.overview}</p>
 							</div>
+							<CastCarousel 
+								media_type={media_type}
+								id={id}
+							/>
 						</div>
 					</div>
 				</div>

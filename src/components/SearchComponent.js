@@ -1,4 +1,5 @@
 import { useContext, useState } from "react"
+import { motion } from "framer-motion" 
 //comps
 import Alert from "../components/Alert"
 //icons
@@ -35,11 +36,14 @@ const SearchComponent = () => {
 
 	return (
 		<div className='search-container'>
-			<button
+			<motion.button
 				className='switching-btn'
 				onClick={() => {
 					setSearchClicked(!searchClicked)
 				}}
+				initial={{ opacity: 0, x: 100 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ duration: 0.6 }}
 				style={
 					!searchClicked
 						? {
@@ -59,12 +63,16 @@ const SearchComponent = () => {
 				) : (
 					<BsSearch className='icon' />
 				)}
-			</button>
+			</motion.button>
 			{searchClicked && (
 				<>
 					{alert && <Alert type={alert.type} message={alert.message} />}
-					<form onSubmit={submit}>
-						<input
+					<form
+						onSubmit={submit}
+					>
+						<motion.input
+							initial={{ opacity: 0, x: -100 }}
+							animate={{ opacity: 1, x: 0 }}
 							type='text'
 							id='input'
 							placeholder={
@@ -73,7 +81,12 @@ const SearchComponent = () => {
 							value={searchTerm}
 							onChange={(e) => setSearchTerm(e.target.value)}
 						/>
-						<button>Search</button>
+						<motion.button
+							initial={{ opacity: 0, x: 100 }}
+							animate={{ opacity: 1, x: 0 }}
+						>
+							Search
+						</motion.button>
 					</form>
 				</>
 			)}

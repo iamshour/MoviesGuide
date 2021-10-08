@@ -6,7 +6,8 @@ import { GlobalContext } from '../context/GlobalState';
 //Icons
 import { RiMovie2Line } from "react-icons/ri";
 import { BiMovie } from "react-icons/bi";
-import { BsCardChecklist, BsInfoCircle } from "react-icons/bs";
+import { BsInfoCircle } from "react-icons/bs";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 const Navbar = () => {
 
@@ -16,7 +17,7 @@ const Navbar = () => {
     useEffect(() => {
         if (location === 0) history.push('/')
         else if (location === 1) history.push('/series')
-        else if (location === 2) history.push('/wishlist')
+        else if (location === 2) history.push('/favorites')
         else if (location === 3) history.push('/about')
     }, [location, history])
 
@@ -38,8 +39,8 @@ const Navbar = () => {
                 icon={<BiMovie className='nav-icon' />} 
             />
             <BottomNavigationAction 
-                label="Wishlist" 
-                icon={<BsCardChecklist className='nav-icon' />} 
+                label="Favorites" 
+                icon={location === 2 ? <MdFavorite className='nav-icon' /> : <MdFavoriteBorder className='nav-icon'/>} 
             />
             <BottomNavigationAction
                 label="About us" 

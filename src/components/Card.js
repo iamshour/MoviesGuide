@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Modal from "./Modal"
+import { motion } from "framer-motion"
 //icons
 import { BsFillStarFill } from "react-icons/bs"
 
@@ -9,7 +10,8 @@ const Card = ({ title, image, rating, date, id, media_type }) => {
 
 	return (
 		<>
-			<button 
+			<motion.button
+				layout 
 				className='card'
 				onClick={() => {
 					setModalOpened(true)
@@ -35,7 +37,7 @@ const Card = ({ title, image, rating, date, id, media_type }) => {
 						{media_type === "movie" ? `Release date: ${date}` : media_type === "tv" ? `First air date: ${date}` : null}
 					</h3>
 				</div>
-			</button>
+			</motion.button>
 			{modalOpened && (
 				<Modal
 					id={id}

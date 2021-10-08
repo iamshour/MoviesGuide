@@ -26,6 +26,14 @@
 			background: $secondary;
 			transform: translateY(-4px);
 			border-color: #7d5f08;
+			.card-info {
+				.card-title {
+					color: $primary-dark;
+				}
+				.card-date {
+					color: $primary-dark;
+				}
+			}
 		}
 
 		.card-rating {
@@ -67,6 +75,7 @@
 				text-align: center;
 				margin: 0.5rem 0;
 				font-size: 1.4rem;
+				color: #F5CE5D;
 			}
 
 			.card-date {
@@ -74,6 +83,7 @@
 				margin-bottom: 0.2rem;
 				font-size: 1.2rem;
 				font-weight: 400;
+				color: #E1AA0E;
 			}
 		}
 	}

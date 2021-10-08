@@ -1,7 +1,5 @@
 const AppReducer = (state, action) => {
 
-	const pathname = window.location.pathname
-
 	switch (action.type) {
 		case "SET_LOADING":
 			return {
@@ -14,7 +12,7 @@ const AppReducer = (state, action) => {
 				...state,
 				showItems: action.payload,
 				loading: false,
-				headline: pathname === '/' ? "Popular movies" : pathname === '/series' ? "Popular series" : null, 
+				headline: state.location === 0 ? "Popular movies" : state.location === 1 ? "Popular series" : null, 
 			}
 
 		case "GET_SEARCH_RESULTS":

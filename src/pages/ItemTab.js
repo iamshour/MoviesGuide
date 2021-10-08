@@ -5,6 +5,7 @@ import Loading from "../components/Loading"
 import Card from "../components/Card"
 import Headline from "../components/Headline"
 import SearchComponent from "../components/SearchComponent"
+import { img_small, unavailable_small } from '../components/config'
 
 const ItemTab = () => {
 	const { showItems, getPopularItems, loading, headline, location } =
@@ -34,11 +35,7 @@ const ItemTab = () => {
 									key={item.id}
 									id={item.id}
 									title={item.name || item.title}
-									image={
-										item.poster_path
-											? `https://image.tmdb.org/t/p/w300${item.poster_path}`
-											: "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-									}
+									image={item.poster_path ? `${img_small}/${item.poster_path}` : unavailable_small}
 									date={item.first_air_date || item.release_date}
 									rating={item.vote_average ? item.vote_average : ""}
 									media_type={media_type}
