@@ -1,3 +1,45 @@
+.navbar {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: $primary-dark;
+
+	.nav-icon {
+		font-size: 2.2rem;
+		color: #14056A;
+	}
+
+	.Mui-selected {
+		color: $secondary;
+		font-size: 1rem;
+		svg {
+			fill: $secondary;
+		}
+	}
+}
+
+header {
+	width: 100%;
+	padding: 2.4rem 0 2.4rem 2.4rem;
+	display: inline-block;
+
+	a {
+		border: 0;
+		background: unset;
+		cursor: pointer;
+		transition: all 250ms ease-in-out;
+
+		&:hover,
+		&:active {
+			transform: scale(0.99);
+		}
+
+		img {
+			width: 20rem;
+		}
+	}
+}
+
 .search-container {
 	display: flex;
 	flex-direction: column;
@@ -34,7 +76,7 @@
 	}
 
 	form {
-		padding: 1.6rem 0 1rem 0;
+		padding-bottom: 2.4rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -79,4 +121,16 @@
 			}
 		}
 	}
+}
+
+.headline {
+    padding: 1rem 0 2rem 2.4rem;
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+.container {
+	padding: 1rem;
 }

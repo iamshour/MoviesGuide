@@ -1,34 +1,40 @@
-.favorites-page {
+.fav-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem 0 4rem 0;
 
-    .fav-btns {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+    button {
+        padding: .8rem;
+        font-size: 1.6rem;
+        border-radius: 4px;
+        border: 0;
+        font-weight: 700;
+    }
 
-        button {
-            padding: .8rem;
-            font-size: 1.6rem;
-            border-radius: 4px;
-            border: 0;
-            font-weight: 700;
-        }
+    .clicked {
+        box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.4);
+        background: $secondary;
+        color: $primary-dark;
+        border: 1px solid #C8970C;
+    }
+    .unclicked {
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        background: $primary-dark;
+        color: $secondary;
+        cursor: pointer;
+        transition: transform 250ms ease-in-out;
 
-        .clicked {
-            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3);
-            background: $secondary;
-            color: $primary-dark;
-        }
-        .unclicked {
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            background: $primary-dark;
-            color: $secondary;
-            cursor: pointer;
-            transition: transform 250ms ease-in-out;
-
-            &:hover, &:active {
-                transform: scale(.98);
-            }
+        &:hover, &:active {
+            transform: scale(.98);
         }
     }
+}
+
+.no-fav {
+    font-size: 3rem;
+    margin: 14rem 0;
+    color: $primary-dark;
+    text-align: center;
 }

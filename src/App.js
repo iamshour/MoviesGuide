@@ -1,30 +1,27 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import BottomNav from "./components/BottomNav"
 import "./styles/main.scss"
 import { GlobalProvider } from "./context/GlobalState"
-
-//Comps
-import Header from "./components/Header"
 
 // Pages
 import ItemTab from "./pages/ItemTab"
 import Favorites from "./pages/Favorites"
-import About from "./pages/About"
+import Upcoming from "./pages/Upcoming"
+import Layout from "./components/Layout/Layout"
 
 function App() {
 	return (
 		<GlobalProvider>
 			<Router>
-				<Header />
-				<div className='container'>
-					<Switch>
-						<Route exact path='/' component={ItemTab} />
-						<Route path='/series' component={ItemTab} />
-						<Route path='/favorites' component={Favorites} />
-						<Route path='/about' component={About} />
-					</Switch>
-				</div>
-				<BottomNav />
+				<Layout>
+					<div className='container'>
+						<Switch>
+							<Route exact path='/' component={ItemTab} />
+							<Route path='/series' component={ItemTab} />
+							<Route path='/upcoming' component={Upcoming} />
+							<Route path='/favorites' component={Favorites} />
+						</Switch>
+					</div>
+				</Layout>
 			</Router>
 		</GlobalProvider>
 	)

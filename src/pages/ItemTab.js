@@ -3,8 +3,6 @@ import { GlobalContext } from "../context/GlobalState"
 // Comps
 import Loading from "../components/Loading"
 import Card from "../components/Card"
-import Headline from "../components/Headline"
-import SearchComponent from "../components/SearchComponent"
 import { img_small, unavailable_small } from '../components/config'
 
 const ItemTab = () => {
@@ -22,14 +20,12 @@ const ItemTab = () => {
 
 	return (
 		<>
-			<SearchComponent />
 			{showItems && (
 				<>
-					<Headline text={headline} />
 					{loading ? (
 						<Loading />
 					) : (
-						<div className='card-container'>
+						<div className='card-container card-container-custom'>
 							{showItems.map((item) => (
 								<Card
 									key={item.id}

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { GlobalContext } from '../context/GlobalState';
-import Logo from '../images/Logo.png';
+import { GlobalContext } from '../../context/GlobalState';
+import Logo from '../../images/Logo.png';
 
 const Header = () => {
 

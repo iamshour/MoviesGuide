@@ -1,12 +1,12 @@
 import axios from "axios"
-import { createContext, useReducer } from "react"
+import { createContext, useEffect, useReducer } from "react"
 import AppReducer from "./AppReducer"
 
 // initial state
 const initialState = {
 	showItems: [],
-	favoriteMovies: [],
-	favoriteSeries: [],
+	favoriteMovies: localStorage.getItem('favoriteMovies') ? JSON.parse(localStorage.getItem('favoriteMovies')) : [],
+	favoriteSeries: localStorage.getItem('favoriteSeries') ? JSON.parse(localStorage.getItem('favoriteSeries')) : [],
 	loading: false,
 	alert: null,
 	headline: "",
@@ -19,6 +19,11 @@ export const GlobalContext = createContext(initialState)
 // provider component
 export const GlobalProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(AppReducer, initialState)
+
+	useEffect(() => {
+		localStorage.setItem('favoriteMovies', JSON.stringify(state.favoriteMovies))
+		localStorage.setItem('favoriteSeries', JSON.stringify(state.favoriteSeries))
+	}, [state])
 
 	// Actions
 	const getPopularItems = async (media_type) => {

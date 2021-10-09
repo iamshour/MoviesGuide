@@ -6,7 +6,7 @@ $secondary-dark: #c8970c;
 $secondary-border: #7d5f08;
 $gradient: linear-gradient(45deg, #9888f9 14.64%, #f1b918 85.34%);
 
-@import "searchComponent";
+@import "layout";
 @import "cardContainer";
 @import "alertComponent";
 @import "modal";
@@ -23,56 +23,4 @@ $gradient: linear-gradient(45deg, #9888f9 14.64%, #f1b918 85.34%);
 	}
 }
 
-.navbar {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	background: $primary-dark;
 
-	.nav-icon {
-		font-size: 2.2rem;
-		color: #14056A;
-	}
-
-	.Mui-selected {
-		color: $secondary;
-		font-size: 1rem;
-		svg {
-			fill: $secondary;
-		}
-	}
-}
-
-header {
-	width: 100%;
-	padding: 2.4rem 0 0 2.4rem;
-	display: inline-block;
-
-	a {
-		border: 0;
-		background: unset;
-		cursor: pointer;
-		transition: all 250ms ease-in-out;
-
-		&:hover,
-		&:active {
-			transform: scale(0.99);
-		}
-
-		img {
-			width: 20rem;
-		}
-	}
-}
-
-.container {
-	padding: 1rem;
-
-	.headline {
-		padding: 2.4rem 0 2.4rem 1rem;
-
-		h1 {
-			font-size: 2rem;
-		}
-	}
-}

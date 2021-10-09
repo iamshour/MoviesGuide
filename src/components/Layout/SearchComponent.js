@@ -1,11 +1,11 @@
 import { useContext, useState } from "react"
 import { motion } from "framer-motion" 
 //comps
-import Alert from "../components/Alert"
+import Alert from "../Alert"
 //icons
 import { BsSearch } from "react-icons/bs"
 import { VscChromeClose } from "react-icons/vsc"
-import { GlobalContext } from "../context/GlobalState"
+import { GlobalContext } from "../../context/GlobalState"
 
 const SearchComponent = () => {
 	const { alert, setAlert, getSearchResults, location } =
