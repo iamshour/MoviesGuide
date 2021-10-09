@@ -6,7 +6,7 @@ import Card from "../components/Card"
 import { img_small, unavailable_small } from '../components/config'
 
 const ItemTab = () => {
-	const { showItems, getPopularItems, loading, headline, location } =
+	const { showItems, getPopularItems, loading, location } =
 		useContext(GlobalContext)
 
 	const media_type = `${
