@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { GlobalContext } from '../context/GlobalState'
-import Card from '../components/Card'
-import { img_small, unavailable_small } from '../components/config'
+import Card from '../components/cardStructure/Card'
+import { img_small, unavailable_small } from '../components/conditional/config'
 
 const Favorites = () => {
 

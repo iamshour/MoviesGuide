@@ -10,6 +10,10 @@ body,
   box-sizing: border-box;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 ul,
 ol,
 li {
@@ -32,7 +36,6 @@ Link {
 }
 
 body {
-  // background: linear-gradient(45deg, #9888f9 14.64%, #f1b918 85.34%);
   background: linear-gradient(45deg, #7863F7 14.64%, #f1b918 85.34%) fixed;
   height: 100%;
   width: 100vw;
@@ -56,4 +59,32 @@ h6 {
 
 p {
   font-weight: 400;
+}
+
+@keyframes slide-left {
+  0% {
+		transform: translateX(150%);
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+		transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes smooth-in {
+  100% {
+    opacity: 1;
+  }
 }

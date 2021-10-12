@@ -1,7 +1,7 @@
 import axios from "axios";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { img_small, unavailable_carousel } from './config'
+import { img_small, unavailable_carousel } from '../conditional/config'
 
 const CastCarousel = ({media_type, id}) => {
 
@@ -12,7 +12,6 @@ const CastCarousel = ({media_type, id}) => {
           `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
         );
         setCredits(data);
-        console.log(data)
       };
     
       useEffect(() => {

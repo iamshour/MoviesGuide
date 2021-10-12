@@ -11,6 +11,7 @@ const initialState = {
 	alert: null,
 	headline: "",
 	location: 0,
+	numOfPages: 1
 }
 
 // create context
@@ -26,19 +27,19 @@ export const GlobalProvider = ({ children }) => {
 	}, [state])
 
 	// Actions
-	const getPopularItems = async (media_type) => {
+	const getPopularItems = async (media_type, page) => {
 		dispatch({
 			type: "SET_LOADING",
 		})
 
 		try {
 			const response = await axios.get(
-				`https://api.themoviedb.org/3/trending/${media_type}/day?api_key=${process.env.REACT_APP_API_KEY}`
+				`https://api.themoviedb.org/3/trending/${media_type}/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
 			)
 			// Request Succeeded!
 			dispatch({
 				type: "GET_POPULAR_ITEMS",
-				payload: response.data.results,
+				payload: response.data,
 			})
 		} catch (error) {
 			// Request Failed!

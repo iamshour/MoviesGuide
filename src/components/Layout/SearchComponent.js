@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { motion } from "framer-motion" 
 //comps
-import Alert from "../Alert"
+import Alert from "../conditional/Alert"
 //icons
 import { BsSearch } from "react-icons/bs"
 import { VscChromeClose } from "react-icons/vsc"
@@ -36,14 +36,11 @@ const SearchComponent = () => {
 
 	return (
 		<div className='search-container'>
-			<motion.button
+			<button
 				className='switching-btn'
 				onClick={() => {
 					setSearchClicked(!searchClicked)
 				}}
-				initial={{ opacity: 0, x: 100 }}
-				animate={{ opacity: 1, x: 0 }}
-				transition={{ duration: 0.6 }}
 				style={
 					!searchClicked
 						? {
@@ -63,7 +60,7 @@ const SearchComponent = () => {
 				) : (
 					<BsSearch className='icon' />
 				)}
-			</motion.button>
+			</button>
 			{searchClicked && (
 				<>
 					{alert && <Alert type={alert.type} message={alert.message} />}

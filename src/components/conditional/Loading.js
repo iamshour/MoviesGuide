@@ -1,4 +1,4 @@
-import Ripple from '../images/Ripple.svg'
+import Ripple from '../../images/Ripple.svg'
 
 const Loading = () => {
     return (

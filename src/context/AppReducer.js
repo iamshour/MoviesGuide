@@ -10,9 +10,10 @@ const AppReducer = (state, action) => {
 		case "GET_POPULAR_ITEMS":
 			return {
 				...state,
-				showItems: action.payload,
+				showItems: action.payload.results,
+				numOfPages: action.payload.total_pages,
 				loading: false,
-				headline: state.location === 0 ? "Popular movies" : state.location === 1 ? "Popular series" : null, 
+				headline: state.location === 0 ? "Popular movies" : state.location === 1 ? "Popular series" : null,
 			}
 
 		case "GET_SEARCH_RESULTS":

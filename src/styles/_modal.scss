@@ -10,6 +10,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	opacity: 0;
+	animation: smooth-in 0.5s ease-in forwards 0.3s;
 
 	.modal {
 		z-index: 11;

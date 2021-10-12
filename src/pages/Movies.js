@@ -1,22 +1,25 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from "../context/GlobalState"
 // Comps
-import Loading from "../components/Loading"
-import Card from "../components/Card"
-import { img_small, unavailable_small } from '../components/config'
+import Loading from "../components/conditional/Loading"
+import Card from "../components/cardStructure/Card"
+import { img_small, unavailable_small } from '../components/conditional/config'
+import CustomPagination from "../components/Layout/CustomPagination"
 
-const ItemTab = () => {
-	const { showItems, getPopularItems, loading, location } =
+const Movies = () => {
+	const { showItems, getPopularItems, loading, location, numOfPages } =
 		useContext(GlobalContext)
 
 	const media_type = `${
 		location === 0 ? "movie" : location === 1 ? "tv" : null
 	}`
 
+    const [page, setPage] = useState(1);
+
 	useEffect(() => {
-		getPopularItems(media_type)
+		getPopularItems(media_type, page)
 		// eslint-disable-next-line
-	}, [location])
+	}, [location, page])
 
 	return (
 		<>
@@ -39,10 +42,13 @@ const ItemTab = () => {
 							))}
 						</div>
 					)}
+					{	numOfPages > 1 &&
+						<CustomPagination setPage={setPage} />
+					}
 				</>
 			)}
 		</>
 	)
 }
 
-export default ItemTab
+export default Movies

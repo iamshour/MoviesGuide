@@ -27,16 +27,17 @@ const Navbar = () => {
             value={location}
             onChange={(event, newValue) => {
                 setLocation(newValue);
+                window.scroll(0, 0)
             }}
             className='navbar'
         >
             <BottomNavigationAction 
                 label="Movies" 
-                icon={<RiMovie2Line className='nav-icon' />} 
+                icon={<RiMovie2Line className='nav-icon' />}
             />
             <BottomNavigationAction 
                 label="Series" 
-                icon={<BiMovie className='nav-icon' />} 
+                icon={<BiMovie className='nav-icon' />}
             />
             <BottomNavigationAction 
                 label="Upcoming" 

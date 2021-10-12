@@ -1,14 +1,14 @@
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
-import { img_large, unavailable_modal } from "./config";
+import { img_large, unavailable_modal } from "../conditional/config";
+import CastCarousel from "./CastCarousel";
 //icons
 import { VscChromeClose } from "react-icons/vsc"
 import { AiOutlineLink } from "react-icons/ai";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { TiVideo } from "react-icons/ti";
-import CastCarousel from "./CastCarousel";
 import { BsFillStarFill } from "react-icons/bs"
-import { GlobalContext } from "../context/GlobalState";
+import { GlobalContext } from "../../context/GlobalState";
 
 const Modal = ({ setModalOpened, media_type, id }) => {
 

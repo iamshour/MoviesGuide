@@ -12,6 +12,7 @@
 	.Mui-selected {
 		color: $secondary;
 		font-size: 1rem;
+		margin-top: 1px;
 		svg {
 			fill: $secondary;
 		}
@@ -36,6 +37,9 @@ header {
 
 		img {
 			width: 20rem;
+			transform: translateX(-150%);
+			opacity: 0;
+			animation: slide-right 0.8s ease-in forwards;
 		}
 	}
 }
@@ -60,6 +64,8 @@ header {
 		border-radius: 8px;
 		transition: all 250ms ease-in-out;
 		cursor: pointer;
+		opacity: 0;
+		animation: slide-left 0.4s ease-in forwards 1s;
 
 		&:hover,
 		&:active {
@@ -125,6 +131,8 @@ header {
 
 .headline {
     padding: 1rem 0 2rem 2.4rem;
+	opacity: 0;
+	animation: smooth-in 0.8s ease-in forwards 1s;
 
     h1 {
         font-size: 2rem;
@@ -133,4 +141,32 @@ header {
 
 .container {
 	padding: 1rem;
+}
+
+.pagination {
+	margin: 6rem auto 9rem auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	li {
+		button {
+			color: $primary-dark;
+			font-weight: 700;
+			font-size: 1rem;
+		}
+	}
+
+	.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+		background-color: $secondary;
+	}
+
+	.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+		background-color: rgba(105, 79, 250, 0.2);
+
+		&:hover {
+			background-color: $primary;
+			color: #f2f2f2;
+		}
+	}
 }

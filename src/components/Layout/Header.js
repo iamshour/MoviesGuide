@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../context/GlobalState';
@@ -16,13 +15,7 @@ const Header = () => {
                 getPopularItems(location === 0 ? 'movie' : 'tv')
                 }}
             >
-                <motion.img 
-                    src={Logo}
-                    alt="MovieMania Logo"
-                    initial={{ opacity: 0, x: -100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7 }}
-                />
+                <img src={Logo} alt="MovieMania Logo" />
             </Link>
         </header>
     )

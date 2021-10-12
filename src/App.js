@@ -3,7 +3,8 @@ import "./styles/main.scss"
 import { GlobalProvider } from "./context/GlobalState"
 
 // Pages
-import ItemTab from "./pages/ItemTab"
+import Movies from "./pages/Movies"
+import Series from "./pages/Series"
 import Favorites from "./pages/Favorites"
 import Upcoming from "./pages/Upcoming"
 import Layout from "./components/Layout/Layout"
@@ -15,8 +16,8 @@ function App() {
 				<Layout>
 					<div className='container'>
 						<Switch>
-							<Route exact path='/' component={ItemTab} />
-							<Route path='/series' component={ItemTab} />
+							<Route exact path='/' component={Movies} />
+							<Route path='/series' component={Series} />
 							<Route path='/upcoming' component={Upcoming} />
 							<Route path='/favorites' component={Favorites} />
 						</Switch>
