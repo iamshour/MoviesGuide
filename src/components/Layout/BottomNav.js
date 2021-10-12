@@ -6,7 +6,7 @@ import { GlobalContext } from '../../context/GlobalState';
 //Icons
 import { RiMovie2Line } from "react-icons/ri";
 import { BiMovie } from "react-icons/bi";
-import { FaRegCalendarCheck } from "react-icons/fa";
+import { BsFillPersonFill } from "react-icons/bs";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
     useEffect(() => {
         if (location === 0) history.push('/')
         else if (location === 1) history.push('/series')
-        else if (location === 2) history.push('/upcoming')
+        else if (location === 2) history.push('/actors')
         else if (location === 3) history.push('/favorites')
     }, [location, history])
 
@@ -40,8 +40,8 @@ const Navbar = () => {
                 icon={<BiMovie className='nav-icon' />}
             />
             <BottomNavigationAction 
-                label="Upcoming" 
-                icon={<FaRegCalendarCheck className='nav-icon' />} 
+                label="Actors" 
+                icon={<BsFillPersonFill className='nav-icon' />} 
             />
             <BottomNavigationAction 
                 label="Favorites" 

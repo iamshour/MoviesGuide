@@ -11,13 +11,13 @@ const Layout = ({children}) => {
     return (
         <>
             <Header />
-            { location === 0 || location === 1 ?
+            { location === 0 || location === 1 || location === 2 ?
                 <SearchComponent /> : null
             }
             <div
                 className='headline'
             >
-                <h1>{location === 0 || location === 1 ? headline : location === 2 ? 'Upcoming movies & series' : location === 3 ? 'Your Favorite Picks!' : ''}</h1>
+                <h1>{location === 0 || location === 1 || location === 2 ? headline : 'Your Favorite Picks!'}</h1>
             </div>
             {children}
             <BottomNav />

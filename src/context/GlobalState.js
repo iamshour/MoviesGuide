@@ -38,9 +38,41 @@ export const GlobalProvider = ({ children }) => {
 			)
 			// Request Succeeded!
 			dispatch({
-				type: "GET_POPULAR_ITEMS",
+				type: "GET_ITEMS",
 				payload: response.data,
 			})
+		} catch (error) {
+			// Request Failed!
+			if (error.response) {
+				// The request was made and the server responded with a status code that falls out of the range of 2xx
+				console.log(error.response.data)
+				console.log(error.response.status)
+				console.log(error.response.headers)
+			} else if (error.request) {
+				// The request was made but no response was received.`error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
+				console.log(error.request)
+			} else {
+				// Something happened in setting up the request that triggered an Error
+				console.log("Error", error.message)
+			}
+		}
+	}
+
+	const getActors = async (page) => {
+		dispatch({
+			type: "SET_LOADING",
+		})
+
+		try {
+			const response = await axios.get(
+				`https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
+			)
+			// Request Succeeded!
+			dispatch({
+				type: "GET_ITEMS",
+				payload: response.data,
+			})
+			console.log(response.data.results)
 		} catch (error) {
 			// Request Failed!
 			if (error.response) {
@@ -64,15 +96,26 @@ export const GlobalProvider = ({ children }) => {
 		})
 
 		try {
-			const response = await axios.get(
-				`https://api.themoviedb.org/3/search/${media_type}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchTerm}&include_adult=false`
-			)
-			dispatch({
-				type: "GET_SEARCH_RESULTS",
-				payload: response.data.results.filter(
-					(item) => item.title !== "UNdefined"
-				),
-			})
+			if (state.location !== 2) {
+				const response = await axios.get(
+					`https://api.themoviedb.org/3/search/${media_type}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchTerm}&include_adult=false`
+				)
+				dispatch({
+					type: "GET_SEARCH_RESULTS",
+					payload: response.data.results.filter(
+						(item) => item.title !== "UNdefined"
+					),
+				}) 
+			} else {
+				const response = await axios.get(
+					`https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchTerm}`
+				)
+				dispatch({
+					type: "GET_SEARCH_RESULTS",
+					payload: response.data.results
+				}) 
+				console.log(response)
+			}
 		} catch (error) {
 			// Request Failed!
 			if (error.response) {
@@ -149,6 +192,7 @@ export const GlobalProvider = ({ children }) => {
 				addFavoriteSeries,
 				removeFavoriteSeries,
 				setLocation,
+				getActors
 			}}
 		>
 			{children}

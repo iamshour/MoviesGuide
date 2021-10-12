@@ -23,6 +23,8 @@ const SearchComponent = () => {
 				getSearchResults(searchTerm, "movie")
 			} else if (location === 1) {
 				getSearchResults(searchTerm, "tv")
+			} else if (location === 2) {
+				getSearchResults(searchTerm)
 			}
 			setSearchTerm("")
 
@@ -73,7 +75,7 @@ const SearchComponent = () => {
 							type='text'
 							id='input'
 							placeholder={
-								location === 0 ? "Search for a movie" : "Search for a series"
+								location === 0 ? "Search for a movie" : location === 1 ? "Search for a series" : location === 2 ? "Search for your favorite actor" : null
 							}
 							value={searchTerm}
 							onChange={(e) => setSearchTerm(e.target.value)}

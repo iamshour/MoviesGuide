@@ -6,7 +6,7 @@ import { GlobalProvider } from "./context/GlobalState"
 import Movies from "./pages/Movies"
 import Series from "./pages/Series"
 import Favorites from "./pages/Favorites"
-import Upcoming from "./pages/Upcoming"
+import Actors from "./pages/Actors"
 import Layout from "./components/Layout/Layout"
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
 						<Switch>
 							<Route exact path='/' component={Movies} />
 							<Route path='/series' component={Series} />
-							<Route path='/upcoming' component={Upcoming} />
+							<Route path='/actors' component={Actors} />
 							<Route path='/favorites' component={Favorites} />
 						</Switch>
 					</div>
