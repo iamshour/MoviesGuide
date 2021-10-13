@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import "./styles/main.scss"
 import { GlobalProvider } from "./context/GlobalState"
 
 // Pages
