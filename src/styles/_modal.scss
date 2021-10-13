@@ -131,7 +131,6 @@
 					line-height: 3.2rem;	
 					margin-bottom: .8rem;
 				}
-
 				.rating-year {
 					width: 100%;
 					display: flex;
@@ -162,7 +161,6 @@
 						margin-left: 1rem;
 					}
 				}
-
 				.genres-container {
 					display: flex;
 					flex-wrap: wrap;
@@ -287,18 +285,6 @@
 				}
 			}
 
-			.overview {
-				padding: .8rem;
-				margin: 1rem;
-				background: #7863F7;
-				border-radius: 1rem;
-
-				p {
-					font-size: 1.5rem;
-					color: #100558;
-				}
-			}
-
 			.carousel-container {
 				margin: 3rem 0 1rem .8rem;
 				position: relative;
@@ -375,6 +361,107 @@
 					outline: 1px solid $secondary-dark;
 					border-radius: 8px;
 					cursor: pointer;
+				}
+			}
+		}
+
+		.overview {
+			padding: .8rem;
+			margin: 1rem;
+			background: #9382F9;
+			border-radius: 1rem;
+
+			.bio-title {
+				display: flex;
+				align-items: center;
+				margin: .2rem 0 .4rem 0;
+
+				.icon {
+					font-size: 1.8rem;
+					color: #100558;
+					margin-right: .4rem;
+					stroke-width: 1px;
+				}
+				h1 {
+					font-size: 1.6rem;
+					color: #100558;
+				}
+			}
+
+			p {
+				font-size: 1.5rem;
+				color: #100558;
+			}
+		}
+		.custom-overview {
+			margin-bottom: 2rem;
+		}
+
+		.actor-top-content {
+			width: 100%;
+
+			.img-container-2 {
+				width: 100%;
+				height: 30vh;
+				max-width: 40rem;
+				max-height: 40rem;
+				display: flex;
+				justify-content: center;
+				margin-top: 4.6rem;
+	
+				img {
+					width: 60%;
+					height: 100%;
+					object-fit: cover;
+					border-radius: 4px;
+					border: 1px solid $secondary-dark;
+					transition: all 250ms ease-in;
+	
+					&:hover {
+						transform: scale(1.04);
+					}
+				}
+			}
+
+			.top-info {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				width: 100%;
+				margin: 3rem 0 2.4rem 0;
+
+				.info-box {
+					width: 100%;
+					display: flex;
+					justify-content: flex-start;
+					padding: 0 1rem 0 2rem;
+					margin-bottom: 1.6rem;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+
+					.info-icon {
+						font-size: 1.7rem;
+						color: $secondary;
+						margin-right: .4rem;
+					}
+
+					.custom {
+						font-size: 1.9rem;
+					}
+
+					h1 {
+						font-size: 1.6rem;
+						color: $secondary;
+						margin-right: 2rem;
+						white-space: nowrap;
+					}
+
+					p {
+						font-size: 1.5rem;
+						color: #f2f2f2;
+					}
 				}
 			}
 		}

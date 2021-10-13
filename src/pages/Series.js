@@ -10,14 +10,10 @@ const Series = () => {
 	const { showItems, getPopularItems, loading, location, numOfPages } =
 		useContext(GlobalContext)
 
-	const media_type = `${
-		location === 0 ? "movie" : location === 1 ? "tv" : null
-	}`
-
     const [page, setPage] = useState(1);
 
 	useEffect(() => {
-		getPopularItems(media_type, page)
+		getPopularItems('tv', page)
 		// eslint-disable-next-line
 	}, [location, page])
 
@@ -33,11 +29,11 @@ const Series = () => {
 								<Card
 									key={item.id}
 									id={item.id}
-									title={item.name || item.title}
-									image={item.poster_path ? `${img_small}/${item.poster_path}` : unavailable_small}
-									date={item.first_air_date || item.release_date}
+									title={item.name}
+									image={item.poster_path ? `${img_small}${item.poster_path}` : unavailable_small}
+									date={item.first_air_date}
 									rating={item.vote_average ? item.vote_average : ""}
-									media_type={media_type}
+									media_type='tv'
 								/>
 							))}
 						</div>

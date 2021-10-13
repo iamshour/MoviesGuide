@@ -1,14 +1,15 @@
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
+import { GlobalContext } from "../../context/GlobalState";
 import { img_large, img_small, unavailable_modal } from "../conditional/config";
 import CastCarousel from "./CastCarousel";
 //icons
 import { VscChromeClose } from "react-icons/vsc"
 import { AiOutlineLink } from "react-icons/ai";
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite, MdFavoriteBorder, MdPlace, MdHistory } from "react-icons/md";
 import { TiVideo } from "react-icons/ti";
-import { BsFillStarFill } from "react-icons/bs"
-import { GlobalContext } from "../../context/GlobalState";
+import { BsFillStarFill, BsFillPersonFill } from "react-icons/bs"
+import { FaCross, FaBirthdayCake } from "react-icons/fa"
 
 const Modal = ({ setModalOpened, media_type, id }) => {
 
@@ -134,9 +135,43 @@ const Modal = ({ setModalOpened, media_type, id }) => {
 								</div> 
 							</> :
 							<>
-								<div className="actor-img-container">
-									<img src={singleItem.profile_path ? `${img_small}/${singleItem.profile_path}` : unavailable_modal} alt={singleItem.name} />
+								<div className="actor-top-content">
+									<div className="img-container-2">
+										<img src={singleItem.profile_path ? `${img_small}/${singleItem.profile_path}` : unavailable_modal} alt={singleItem.name} />
+									</div>
+									<div className="top-info">
+										<div className="info-box">
+											<BsFillPersonFill className='info-icon' />
+											<h1>Name:</h1>
+											<p>{singleItem.name}</p>
+										</div>
+										<div className="info-box">
+											<MdPlace className='info-icon custom' />
+											<h1>Place of birth:</h1>
+											<p>{singleItem.place_of_birth}</p>
+										</div>
+										<div className="info-box">
+											<FaBirthdayCake className='info-icon' />
+											<h1>Birthday:</h1>
+											<p>{singleItem.birthday}</p>
+										</div>
+										{ singleItem.deathday &&
+											<div className="info-box">
+												<FaCross className='info-icon' />
+												<h1>Death:</h1>
+											<p>{singleItem.deathday}</p>
+										</div>}
+									</div>
 								</div>
+								{ singleItem.biography &&
+									<div className="overview custom-overview">
+										<div className="bio-title">
+											<MdHistory className='icon' />
+											<h1>Biography</h1>
+										</div>
+										<p>{singleItem.biography}</p>
+									</div>
+								}
 							</>
 						}
 					</div>

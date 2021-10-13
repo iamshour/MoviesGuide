@@ -30,7 +30,7 @@ const Actors = () => {
 									title={item.name}
 									key={item.id}
 									id={item.id}
-									image={item.profile_path ? `${img_small}/${item.profile_path}` : unavailable_small}
+									image={item.profile_path ? `${img_small}${item.profile_path}` : unavailable_small}
 								/>
 							))}
 						</div>
