@@ -6,7 +6,7 @@
 
 	.nav-icon {
 		font-size: 2.2rem;
-		color: #14056A;
+		color: #14056a;
 	}
 
 	.Mui-selected {
@@ -130,13 +130,13 @@ header {
 }
 
 .headline {
-    padding: 1rem 0 2rem 2.4rem;
+	padding: 1rem 0 2rem 2.4rem;
 	opacity: 0;
 	animation: smooth-in 0.8s ease-in forwards 1s;
 
-    h1 {
-        font-size: 2rem;
-    }
+	h1 {
+		font-size: 2rem;
+	}
 }
 
 .container {
@@ -151,7 +151,7 @@ header {
 
 	li {
 		button {
-			color: $primary-dark;
+			color: #240ab9;
 			font-weight: 700;
 			font-size: 1rem;
 		}

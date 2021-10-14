@@ -111,7 +111,10 @@ const ModalMovies = ({ media_type, id }) => {
 						storedMovie ? (
 							<button
 								className='cta wishlist'
-								onClick={() => removeFavoriteMovie(item.id)}
+								onClick={() => {
+									removeFavoriteMovie(item.id)
+									document.querySelector("html").style.overflowY = "visible"
+								}}
 								style={{ color: "#f1b918" }}
 							>
 								<MdFavorite className='cta-icon' />
@@ -129,7 +132,10 @@ const ModalMovies = ({ media_type, id }) => {
 					) : storedSeries ? (
 						<button
 							className='cta wishlist'
-							onClick={() => removeFavoriteSeries(item.id)}
+							onClick={() => {
+								removeFavoriteSeries(item.id)
+								document.querySelector("html").style.overflowY = "visible"
+							}}
 							style={{ color: "#f1b918" }}
 						>
 							<MdFavorite className='cta-icon' />

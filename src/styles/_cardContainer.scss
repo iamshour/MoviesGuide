@@ -19,7 +19,7 @@
 		cursor: pointer;
 		transition: all 250ms ease-in-out;
 		font: unset;
-	
+
 		&:hover,
 		&:active {
 			background: $secondary;
@@ -34,17 +34,17 @@
 				}
 			}
 		}
-	
+
 		.card-rating {
 			position: absolute;
 			top: -14px;
 			right: -9px;
-	
+
 			.rating-icon {
 				font-size: 3.8rem;
 				stroke-width: 0.6px;
 			}
-	
+
 			h4 {
 				position: absolute;
 				top: 52%;
@@ -53,19 +53,19 @@
 				font-size: 1.2rem;
 			}
 		}
-	
+
 		img {
 			width: 157px;
 			height: 235.5px;
 			object-fit: cover;
 		}
-	
+
 		.card-info {
 			display: flex;
 			flex-direction: column;
 			width: 100%;
 			padding: 0 0.1rem;
-	
+
 			.card-title {
 				white-space: nowrap;
 				overflow: hidden;
@@ -74,10 +74,10 @@
 				text-align: center;
 				margin: 0.5rem 0;
 				font-size: 1.4rem;
-				color: #F5CE5D;
+				color: #f5ce5d;
 				color: #070129;
 			}
-	
+
 			.card-date {
 				text-align: center;
 				margin-bottom: 0.2rem;
@@ -87,22 +87,40 @@
 			}
 		}
 	}
-	
+
 	.good-rating {
 		.rating-icon {
 			color: gold;
 			stroke: #947e04;
 		}
 	}
-	
+
 	.bad-rating {
 		.rating-icon {
 			color: rgb(248, 56, 56);
 			stroke: #aa0c06;
 		}
 	}
-	
+
 	.no-rating {
 		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-mobile-lg) {
+	.card-container {
+		grid-gap: 1.6rem;
+
+		.card {
+			.card-info {
+				.card-title {
+					font-size: 1.5rem;
+				}
+
+				.card-date {
+					font-size: 1.2rem;
+				}
+			}
+		}
 	}
 }
