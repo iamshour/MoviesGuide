@@ -124,3 +124,47 @@
 		}
 	}
 }
+
+@media (min-width: $breakpoint-tablet) {
+	.card-container {
+		margin: 0 auto 4rem auto;
+		grid-template-columns: repeat(auto-fit, 22rem);
+		grid-gap: 2.4rem;
+		justify-content: center;
+
+		.card {
+			.card-rating {
+				top: -18px;
+				right: -14px;
+
+				.rating-icon {
+					font-size: 4.6rem;
+				}
+
+				h4 {
+					font-size: 1.4rem;
+				}
+			}
+
+			img {
+				width: 216px;
+				height: auto;
+			}
+
+			.card-info {
+				padding: 0 0.2rem;
+
+				.card-title {
+					max-width: 20ch;
+					margin: 0.8rem 0;
+					font-size: 1.8rem;
+				}
+
+				.card-date {
+					margin-bottom: 0.3rem;
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+}

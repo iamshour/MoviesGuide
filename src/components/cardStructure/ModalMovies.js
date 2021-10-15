@@ -158,8 +158,8 @@ const ModalMovies = ({ media_type, id }) => {
 					</div>
 					<p>{item.overview}</p>
 				</div>
-				<CastCarousel media_type={media_type} id={id} />
 			</div>
+			<CastCarousel media_type={media_type} id={id} />
 		</>
 	)
 }

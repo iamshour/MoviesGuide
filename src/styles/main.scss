@@ -79,6 +79,14 @@ p {
 	font-weight: 400;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 @keyframes slide-left {
 	0% {
 		transform: translateX(150%);
