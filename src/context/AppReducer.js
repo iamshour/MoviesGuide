@@ -1,5 +1,4 @@
 const AppReducer = (state, action) => {
-
 	switch (action.type) {
 		case "SET_LOADING":
 			return {
@@ -13,7 +12,14 @@ const AppReducer = (state, action) => {
 				showItems: action.payload.results,
 				numOfPages: action.payload.total_pages,
 				loading: false,
-				headline: state.location === 0 ? "Popular movies" : state.location === 1 ? "Popular series" : state.location === 2 ? "Popular Actors" : null,
+				headline:
+					state.location === 0
+						? "Popular movies"
+						: state.location === 1
+						? "Popular series"
+						: state.location === 2
+						? "Popular Actors"
+						: null,
 			}
 
 		case "GET_SEARCH_RESULTS":
