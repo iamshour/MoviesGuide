@@ -5,19 +5,18 @@ import { motion } from "framer-motion"
 import { BsFillStarFill } from "react-icons/bs"
 
 const Card = ({ title, image, rating, date, id, media_type }) => {
-
 	const [modalOpened, setModalOpened] = useState(false)
 
 	return (
 		<>
 			<motion.button
-				layout 
+				layout
 				className='card'
 				onClick={() => {
 					setModalOpened(true)
-					document.querySelector('html').style.overflowY = 'hidden';
+					document.querySelector("html").style.overflowY = "hidden"
 					//or use documentElement instead of querySelector
-				}} 
+				}}
 			>
 				<div
 					className={`card-rating ${
@@ -34,7 +33,11 @@ const Card = ({ title, image, rating, date, id, media_type }) => {
 				<div className='card-info'>
 					<h2 className='card-title'>{title}</h2>
 					<h3 className='card-date'>
-						{media_type === "movie" ? `Release date: ${date}` : media_type === "tv" ? `First air date: ${date}` : null}
+						{media_type === "movie"
+							? `Release date: ${date}`
+							: media_type === "tv"
+							? `First air date: ${date}`
+							: null}
 					</h3>
 				</div>
 			</motion.button>
