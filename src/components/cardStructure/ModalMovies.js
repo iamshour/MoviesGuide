@@ -47,7 +47,7 @@ const ModalMovies = ({ media_type, id }) => {
 	}, [])
 
 	return (
-		<>
+		<div className='modal-movies'>
 			<div className='img-container'>
 				<img
 					src={
@@ -160,7 +160,7 @@ const ModalMovies = ({ media_type, id }) => {
 				</div>
 			</div>
 			<CastCarousel media_type={media_type} id={id} />
-		</>
+		</div>
 	)
 }
 

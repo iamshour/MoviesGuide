@@ -1,41 +1,44 @@
-import axios from "axios";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { img_small, unavailable_carousel } from '../conditional/config'
+import axios from "axios"
+import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { img_small, unavailable_carousel } from "../conditional/config"
 
-const CastCarousel = ({media_type, id}) => {
+const CastCarousel = ({ media_type, id }) => {
+	const [credits, setCredits] = useState()
 
-    const [credits, setCredits] = useState();
+	const fetchCredits = async () => {
+		const { data } = await axios.get(
+			`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+		)
+		setCredits(data)
+	}
 
-    const fetchCredits = async () => {
-        const { data } = await axios.get(
-          `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-        );
-        setCredits(data);
-      };
-    
-      useEffect(() => {
-        fetchCredits();
-        // eslint-disable-next-line
-      }, []);
+	useEffect(() => {
+		fetchCredits()
+		// eslint-disable-next-line
+	}, [])
 
-    return (
-        <motion.div className='carousel-container'>
-            <div className="carousel">
-                { credits && 
-                    credits.cast.map(item => (
-                        <motion.div
-                            key={item.id}
-                            className='single-cast'
-                        >
-                            <img src={item.profile_path ? `${img_small}/${item.profile_path}` : unavailable_carousel} alt={item?.name} />
-                            <h3>{item?.name}</h3>
-                        </motion.div>
-                    ))
-                }
-            </div>
-        </motion.div>
-    )
+	return (
+		<motion.div className='carousel-container'>
+			<h2>Cast</h2>
+			<div className='carousel'>
+				{credits &&
+					credits.cast.map((item) => (
+						<motion.div key={item.id} className='single-cast'>
+							<img
+								src={
+									item.profile_path
+										? `${img_small}/${item.profile_path}`
+										: unavailable_carousel
+								}
+								alt={item?.name}
+							/>
+							<h3>{item?.name}</h3>
+						</motion.div>
+					))}
+			</div>
+		</motion.div>
+	)
 }
 
 export default CastCarousel

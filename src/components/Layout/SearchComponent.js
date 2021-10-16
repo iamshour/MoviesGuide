@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { motion } from "framer-motion" 
+import { motion } from "framer-motion"
 //comps
 import Alert from "../conditional/Alert"
 //icons
@@ -66,16 +66,20 @@ const SearchComponent = () => {
 			{searchClicked && (
 				<>
 					{alert && <Alert type={alert.type} message={alert.message} />}
-					<form
-						onSubmit={submit}
-					>
+					<form onSubmit={submit}>
 						<motion.input
 							initial={{ opacity: 0, x: -100 }}
 							animate={{ opacity: 1, x: 0 }}
 							type='text'
 							id='input'
 							placeholder={
-								location === 0 ? "Search for a movie" : location === 1 ? "Search for a series" : location === 2 ? "Search for your favorite actor" : null
+								location === 0
+									? "Search for a movie"
+									: location === 1
+									? "Search for a series"
+									: location === 2
+									? "Search for your favorite actor"
+									: null
 							}
 							value={searchTerm}
 							onChange={(e) => setSearchTerm(e.target.value)}
