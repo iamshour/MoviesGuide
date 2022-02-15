@@ -29,7 +29,7 @@ const Header = () => {
 					}
 				}}>
 				<img
-					src='https://res.cloudinary.com/dniaqkd0y/image/upload/v1644935577/moviesguide-logo_hiugir.png'
+					src='https://res.cloudinary.com/dniaqkd0y/image/upload/v1644939578/moviesGuide-logo_u3mdfl.png'
 					alt='MoviesGuide app Logo'
 				/>
 			</Link>
