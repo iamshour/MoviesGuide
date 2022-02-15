@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { GlobalContext } from "../context/GlobalState"
+import { GlobalContext } from "context/GlobalState"
 // Comps
 import Card from "components/card"
 import Loading from "components/fragments/Loading"
