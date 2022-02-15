@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
-import { GlobalContext } from "../../context/GlobalState"
+import { GlobalContext } from "context/GlobalState"
 import axios from "axios"
-import { img_large, unavailable_modal } from "../conditional/config"
+import { img_large, unavailable_modal } from "components/utility"
 import CastCarousel from "./CastCarousel"
 //Icons
 import { AiOutlineLink } from "react-icons/ai"
@@ -51,9 +51,7 @@ const ModalMovies = ({ media_type, id }) => {
 			<div className='img-container'>
 				<img
 					src={
-						item.backdrop_path
-							? `${img_large}/${item.backdrop_path}`
-							: unavailable_modal
+						item.backdrop_path ? `${img_large}/${item.backdrop_path}` : unavailable_modal
 					}
 					alt={item.title || item.name}
 				/>
@@ -68,10 +66,7 @@ const ModalMovies = ({ media_type, id }) => {
 						</div>
 						<h4 className='year'>
 							|&nbsp;&nbsp;&nbsp;
-							{(item.release_date || item.first_air_date || "----").substring(
-								0,
-								4
-							)}
+							{(item.release_date || item.first_air_date || "----").substring(0, 4)}
 						</h4>
 					</div>
 					<div className='genres-container'>
@@ -89,8 +84,7 @@ const ModalMovies = ({ media_type, id }) => {
 						className='cta trailer'
 						href={`https://www.youtube.com/watch?v=${video}`}
 						rel='noreferrer'
-						target='_blank'
-					>
+						target='_blank'>
 						<TiVideo className='cta-icon' />
 						<h2>Official Trailer</h2>
 					</a>
@@ -102,8 +96,7 @@ const ModalMovies = ({ media_type, id }) => {
 								: `https://www.google.com/search?q=${item.name || item.title}`
 						}
 						rel='noreferrer'
-						target='_blank'
-					>
+						target='_blank'>
 						<AiOutlineLink className='cta-icon' />
 						<h2>Official page</h2>
 					</a>
@@ -115,16 +108,12 @@ const ModalMovies = ({ media_type, id }) => {
 									removeFavoriteMovie(item.id)
 									document.querySelector("html").style.overflowY = "visible"
 								}}
-								style={{ color: "#f1b918" }}
-							>
+								style={{ color: "#f1b918" }}>
 								<MdFavorite className='cta-icon' />
 								<h2>Already a favorite!</h2>
 							</button>
 						) : (
-							<button
-								className='cta wishlist'
-								onClick={() => addFavoriteMovie(item)}
-							>
+							<button className='cta wishlist' onClick={() => addFavoriteMovie(item)}>
 								<MdFavoriteBorder className='cta-icon' />
 								<h2>Add to Favorites</h2>
 							</button>
@@ -136,16 +125,12 @@ const ModalMovies = ({ media_type, id }) => {
 								removeFavoriteSeries(item.id)
 								document.querySelector("html").style.overflowY = "visible"
 							}}
-							style={{ color: "#f1b918" }}
-						>
+							style={{ color: "#f1b918" }}>
 							<MdFavorite className='cta-icon' />
 							<h2>Already a favorite!</h2>
 						</button>
 					) : (
-						<button
-							className='cta wishlist'
-							onClick={() => addFavoriteSeries(item)}
-						>
+						<button className='cta wishlist' onClick={() => addFavoriteSeries(item)}>
 							<MdFavoriteBorder className='cta-icon' />
 							<h2>Add to Favorites</h2>
 						</button>

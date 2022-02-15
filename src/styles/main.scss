@@ -12,11 +12,15 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1080px;
 $breakpoint-desktop-lg: 1200px;
 
-@import "layout";
-@import "cardContainer";
-@import "alertComponent";
-@import "modal";
-@import "favorites";
+@import "components/alert";
+@import "components/card";
+@import "components/fragments";
+@import "components/layout";
+@import "components/layout/header";
+@import "components/layout/navbar";
+@import "components/modal";
+@import "components/searchComp";
+@import "pages/favorites";
 
 html,
 body,

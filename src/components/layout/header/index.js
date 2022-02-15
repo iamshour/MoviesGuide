@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { GlobalContext } from "../../context/GlobalState"
-import Logo from "../../images/Logo.png"
+import { GlobalContext } from "context/GlobalState"
+import Logo from "images/Logo.png"
 
 const Header = () => {
 	const { getPopularItems, location, getActors } = useContext(GlobalContext)
@@ -28,8 +28,7 @@ const Header = () => {
 					} else if (location === 2) {
 						getActors(1)
 					}
-				}}
-			>
+				}}>
 				<img src={Logo} alt='MovieMania Logo' />
 			</Link>
 		</header>

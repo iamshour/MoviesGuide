@@ -1,0 +1,37 @@
+header {
+	width: 100%;
+	padding: 2.4rem 0 2.4rem 2.4rem;
+	display: inline-block;
+
+	a {
+		border: 0;
+		background: unset;
+		cursor: pointer;
+		transition: all 250ms ease-in-out;
+
+		&:hover,
+		&:active {
+			transform: scale(0.99);
+		}
+
+		img {
+			width: 20rem;
+			transform: translateX(-150%);
+			opacity: 0;
+			animation: slide-right 0.8s ease-in forwards;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-desktop) {
+	header {
+		width: 100%;
+		padding: 2.4rem 0 2.4rem 2.4rem;
+
+		a {
+			img {
+				width: 15rem;
+			}
+		}
+	}
+}

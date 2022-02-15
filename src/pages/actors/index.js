@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react"
-import { GlobalContext } from "../context/GlobalState"
+import { GlobalContext } from "context/GlobalState"
 // Comps
-import Loading from "../components/conditional/Loading"
-import Card from "../components/cardStructure/Card"
-import { img_small, unavailable_small } from "../components/conditional/config"
-import CustomPagination from "components/Layout/CustomPagination"
+import Loading from "components/fragments/Loading"
+import Card from "components/card"
+import { img_small, unavailable_small } from "components/utility"
+import CustomPagination from "components/fragments/CustomPagination"
 
 const Actors = () => {
 	const { showItems, getActors, loading, location, numOfPages } =

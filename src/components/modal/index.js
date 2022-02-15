@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { GlobalContext } from "../../context/GlobalState"
+import { GlobalContext } from "context/GlobalState"
 //comps
 import ModalMovies from "./ModalMovies"
 import ModalActors from "./ModalActors"
@@ -24,8 +24,7 @@ const Modal = ({ setModalOpened, media_type, id }) => {
 					onClick={() => {
 						setModalOpened(false)
 						document.querySelector("html").style.overflowY = "visible"
-					}}
-				>
+					}}>
 					<VscChromeClose className='close-icon' />
 				</button>
 				{location !== 2 ? (

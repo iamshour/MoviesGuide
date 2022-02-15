@@ -1,7 +1,7 @@
 import axios from "axios"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { img_small, unavailable_carousel } from "../conditional/config"
+import { img_small, unavailable_carousel } from "components/utility"
 
 const CastCarousel = ({ media_type, id }) => {
 	const [credits, setCredits] = useState()

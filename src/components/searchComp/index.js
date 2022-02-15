@@ -1,15 +1,14 @@
 import { useContext, useState } from "react"
 import { motion } from "framer-motion"
 //comps
-import Alert from "../conditional/Alert"
+import Alert from "components/alert"
 //icons
 import { BsSearch } from "react-icons/bs"
 import { VscChromeClose } from "react-icons/vsc"
-import { GlobalContext } from "../../context/GlobalState"
+import { GlobalContext } from "context/GlobalState"
 
-const SearchComponent = () => {
-	const { alert, setAlert, getSearchResults, location } =
-		useContext(GlobalContext)
+const SearchComp = () => {
+	const { alert, setAlert, getSearchResults, location } = useContext(GlobalContext)
 	const [searchClicked, setSearchClicked] = useState(false)
 	const [searchTerm, setSearchTerm] = useState("")
 
@@ -55,8 +54,7 @@ const SearchComponent = () => {
 								background: "#C8970C",
 								border: "1px solid #7d5f08",
 						  }
-				}
-			>
+				}>
 				{searchClicked ? (
 					<VscChromeClose className='icon' />
 				) : (
@@ -86,8 +84,7 @@ const SearchComponent = () => {
 						/>
 						<motion.button
 							initial={{ opacity: 0, x: 100 }}
-							animate={{ opacity: 1, x: 0 }}
-						>
+							animate={{ opacity: 1, x: 0 }}>
 							Search
 						</motion.button>
 					</form>
@@ -97,4 +94,4 @@ const SearchComponent = () => {
 	)
 }
 
-export default SearchComponent
+export default SearchComp

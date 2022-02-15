@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { img_small, unavailable_modal } from "../conditional/config"
+import { img_small, unavailable_modal } from "components/utility"
 import axios from "axios"
 //icons
 import { BsFillPersonFill } from "react-icons/bs"
@@ -28,9 +28,7 @@ const ModalActors = ({ id }) => {
 				<div className='img-container-2'>
 					<img
 						src={
-							item.profile_path
-								? `${img_small}/${item.profile_path}`
-								: unavailable_modal
+							item.profile_path ? `${img_small}/${item.profile_path}` : unavailable_modal
 						}
 						alt={item.name}
 					/>

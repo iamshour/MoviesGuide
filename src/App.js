@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { GlobalProvider } from "./context/GlobalState"
+import { GlobalProvider } from "context/GlobalState"
 
 // Pages
-import Movies from "./pages/Movies"
-import Series from "./pages/Series"
-import Favorites from "./pages/Favorites"
-import Actors from "./pages/Actors"
-import Layout from "./components/Layout/Layout"
+import Movies from "pages/movies"
+import Series from "pages/series"
+import Favorites from "pages/favorites"
+import Actors from "pages/actors"
+import Layout from "components/layout"
 
 function App() {
 	return (

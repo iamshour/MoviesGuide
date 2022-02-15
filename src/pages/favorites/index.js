@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
-import { GlobalContext } from "../context/GlobalState"
-import Card from "../components/cardStructure/Card"
-import { img_small, unavailable_small } from "../components/conditional/config"
+import { GlobalContext } from "context/GlobalState"
+import Card from "components/card"
+import { img_small, unavailable_small } from "components/utility"
 
 const Favorites = () => {
 	const { favoriteMovies, favoriteSeries } = useContext(GlobalContext)
@@ -12,14 +12,12 @@ const Favorites = () => {
 			<div className='fav-btns'>
 				<button
 					className={movieClicked ? "clicked" : "unclicked"}
-					onClick={() => (!movieClicked ? setMovieClicked(true) : null)}
-				>
+					onClick={() => (!movieClicked ? setMovieClicked(true) : null)}>
 					Favorite Movies
 				</button>
 				<button
 					className={movieClicked ? "unclicked" : "clicked"}
-					onClick={() => (movieClicked ? setMovieClicked(false) : null)}
-				>
+					onClick={() => (movieClicked ? setMovieClicked(false) : null)}>
 					Favorite Series
 				</button>
 			</div>
@@ -53,9 +51,7 @@ const Favorites = () => {
 							id={item.id}
 							title={item.name || item.title}
 							image={
-								item.poster_path
-									? `${img_small}/${item.poster_path}`
-									: unavailable_small
+								item.poster_path ? `${img_small}/${item.poster_path}` : unavailable_small
 							}
 							date={item.first_air_date || item.release_date}
 							rating={item.vote_average ? item.vote_average : ""}

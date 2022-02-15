@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Modal from "./Modal"
+import Modal from "components/modal"
 import { motion } from "framer-motion"
 //icons
 import { BsFillStarFill } from "react-icons/bs"
@@ -16,13 +16,11 @@ const Card = ({ title, image, rating, date, id, media_type }) => {
 					setModalOpened(true)
 					document.querySelector("html").style.overflowY = "hidden"
 					//or use documentElement instead of querySelector
-				}}
-			>
+				}}>
 				<div
 					className={`card-rating ${
 						rating > 6 ? "good-rating" : rating < 6 ? "bad-rating" : "no-rating"
-					}`}
-				>
+					}`}>
 					<BsFillStarFill
 						className='rating-icon'
 						style={rating === "" && { display: "none" }}
@@ -42,11 +40,7 @@ const Card = ({ title, image, rating, date, id, media_type }) => {
 				</div>
 			</motion.button>
 			{modalOpened && (
-				<Modal
-					id={id}
-					media_type={media_type}
-					setModalOpened={setModalOpened}
-				/>
+				<Modal id={id} media_type={media_type} setModalOpened={setModalOpened} />
 			)}
 		</>
 	)

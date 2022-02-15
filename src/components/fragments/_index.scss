@@ -1,0 +1,34 @@
+.pagination {
+	margin: 6rem auto 9rem auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	li {
+		.Mui-selected {
+			background-color: $secondary;
+		}
+		button {
+			background-color: rgba(105, 79, 250, 0.2);
+			color: #240ab9;
+			font-weight: 700;
+			font-size: 1rem;
+
+			&:hover {
+				background-color: $primary;
+				color: #f2f2f2;
+			}
+		}
+	}
+}
+
+@media (min-width: $breakpoint-tablet) {
+	.pagination {
+		li {
+			margin-right: 6px;
+			button {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}

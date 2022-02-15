@@ -1,0 +1,42 @@
+.navbar {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: $primary-dark;
+
+	.nav-icon {
+		font-size: 2.2rem;
+		color: #14056a;
+	}
+
+	.Mui-selected {
+		color: $secondary;
+		font-size: 1rem;
+		margin-top: 1px;
+		svg {
+			fill: $secondary;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-tablet) {
+	.navbar {
+		.nav-icon {
+			font-size: 2.4rem;
+		}
+
+		.Mui-selected {
+			font-size: 1.2rem;
+			margin-top: 1.5px;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-desktop) {
+	.navbar {
+		.Mui-selected {
+			font-size: 1rem;
+			margin-top: 1px;
+		}
+	}
+}
