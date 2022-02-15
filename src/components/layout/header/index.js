@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { GlobalContext } from "context/GlobalState"
-import Logo from "images/Logo.png"
 
 const Header = () => {
 	const { getPopularItems, location, getActors } = useContext(GlobalContext)
@@ -29,7 +28,10 @@ const Header = () => {
 						getActors(1)
 					}
 				}}>
-				<img src={Logo} alt='MovieMania Logo' />
+				<img
+					src='https://res.cloudinary.com/dniaqkd0y/image/upload/v1644935577/moviesguide-logo_hiugir.png'
+					alt='MoviesGuide app Logo'
+				/>
 			</Link>
 		</header>
 	)
